@@ -584,7 +584,9 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
           marker.parent!.zoom == _maxZoom &&
           marker.parent == cluster.markers[0].parent);
       if (cannotDivide) {
-        _spiderfy(cluster);
+        var onCannotDivide = widget.options.onCannotDivide; //MOD
+        if (onCannotDivide != null) onCannotDivide(cluster); //MOD
+        //_spiderfy(cluster);
         return null;
       }
 
