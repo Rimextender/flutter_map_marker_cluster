@@ -115,6 +115,9 @@ class MarkerClusterLayerOptions extends LayerOptions {
   /// Function to call when a cluster Marker is tapped
   final void Function(MarkerClusterNode) onClusterTap;
 
+  //MOD: will be called if cannot divide cluster instead of spiderfy
+  final void Function(MarkerClusterNode) onCannotDivide;
+
   /// Popup's options that show when tapping markers or via the PopupController.
   final PopupOptions popupOptions;
 
@@ -139,6 +142,7 @@ class MarkerClusterLayerOptions extends LayerOptions {
     this.showPolygon = true,
     this.onMarkerTap,
     this.onClusterTap,
+    this.onCannotDivide,
     this.onMarkersClustered,
     this.popupOptions,
   }) : assert(builder != null);
